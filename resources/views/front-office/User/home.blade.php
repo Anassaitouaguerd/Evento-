@@ -26,11 +26,6 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="container">
@@ -65,7 +60,9 @@
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero-section set-bg" data-setbg="img/hero.jpg">
+    <section class="hero-section set-bg">
+        <div class="section">
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -76,7 +73,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <img src="img/hero-right.png" alt="">
+                    <img src="/assets/images/hero-right.png" alt="">
                 </div>
             </div>
         </div>
@@ -194,8 +191,6 @@
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
-
     <!-- Js Plugins -->
     <script src="/assets/js/jquery-3.3.1.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
