@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Evento Register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+@extends('auth.partials.tags_html')
 
-    <!-- MATERIAL DESIGN ICONIC FONT -->
-    <link
-      rel="stylesheet"
-      href="/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"
-    />
+@section('title' , 'Register')
 
-    <!-- STYLE CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  </head>
-
-  <body>
+@section('content')
     <div class="wrapper_register">
       <div class="inner">
         <div class="image-holder">
           <img src="/assets/images/reg.jpg" alt="" />
         </div>
         <form method="POST" action="{{ route('register') }}">
+
             @csrf
           <div class="form-group">
                 <label for="email">Name Address</label>
@@ -64,8 +51,4 @@
       </div>
     </div>
 
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/js/main.js"></script>
-  </body>
-  <!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+ @endsection

@@ -54,4 +54,9 @@ class Authontication extends Controller
         Session::flush();
         return redirect('/login')->with('success', 'Goodbye!!');
     }
+
+    public function index_forget_password()
+    {
+        return view('auth.forgot-password');
+    }
 }

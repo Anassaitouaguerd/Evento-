@@ -281,6 +281,7 @@ ol {
 .header-section {
     display: -webkit-box;
     display: -ms-flexbox;
+    height: 93px;
     display: flex;
 }
 
@@ -410,7 +411,7 @@ ol {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 .hero-section {
     height: 90vh;
@@ -1718,6 +1719,7 @@ ol {
 -----------------------*/
 
 .blog-section {
+    margin-top: 100px;
     padding-top: 50px;
 }
 
