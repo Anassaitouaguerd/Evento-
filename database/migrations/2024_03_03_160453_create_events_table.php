@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('name' , 200);
-            $table->string('description' , 255);
+            $table->string('name', 200);
+            $table->string('description', 255);
             $table->timestamp('date_start');
             $table->string('adress');
             $table->unsignedBigInteger('number_place');
             $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('user_id');
             $table->enum('type', ['auto', 'manuly'])->default('auto');
-            $table->enum('status', ['approved', 'rejected' , 'pending'])->default('pending');
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('status', ['approved', 'rejected', 'pending'])->default('pending');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

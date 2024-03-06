@@ -21,8 +21,14 @@ class StoreEventRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            //
+            'name' => 'required',
+            'description' => 'required|max:300',
+            'address' => 'required',
+            'number_place' => 'numeric',
+            'category_id' => 'required',
+            'date_start' => 'required|date',
         ];
     }
 }

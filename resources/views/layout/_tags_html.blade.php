@@ -39,17 +39,22 @@
                     <ul>
                         <li class="active"><a href="./index.html">Home</a></li>
                         <li><a href="./about-us.html">About</a></li>
-                        <li><a href="./speaker.html">Speakers</a>
+                        @if (session('user_role') && session('user_role') == 'organisateur')
+                        <li><a href="./speaker.html">Event management</a>
                             <ul class="dropdown">
-                                <li><a href="#">Jayden</a></li>
-                                <li><a href="#">Sara</a></li>
-                                <li><a href="#">Emma</a></li>
-                                <li><a href="#">Harriet</a></li>
+                                <li><a href="#">Dashboard Events</a></li>
+                                <li><a href="#">Create Event</a></li>
+                                <li><a href="/organisateur/Event/{{session('user_id')}}">All My Events</a></li>
+                                <li><a href="#">Events Board</a></li>
                             </ul>
                         </li>
-                        <li><a href="./schedule.html">Schedule</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        @endif
+                        <li><a href="#">Welcome, {{session('user_name')}}</a>
+                            <ul class="dropdown">
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Ticket</a>

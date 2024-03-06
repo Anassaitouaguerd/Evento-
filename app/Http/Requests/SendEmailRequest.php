@@ -22,7 +22,7 @@ class SendEmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'email|string|required|min:4',
+            'email' => 'email|required|min:4',
         ];
     }
 }

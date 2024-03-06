@@ -2,6 +2,7 @@
 
 @section('title' , 'Login')
 
+
 @section('content')
   <div class="wrapper">
     <div class="inner">
@@ -11,7 +12,7 @@
       <form method="POST" action="/login">
         @include('auth.Messages')
         @csrf
-        <div class="form-group">
+        <div class="form-group mt-4">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" required>
           @error('email')

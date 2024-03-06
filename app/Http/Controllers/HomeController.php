@@ -10,4 +10,8 @@ class HomeController extends Controller
     {
         return view('front-office.User.home');
     }
+    public function dashboard()
+    {
+        return view('back-office.dashboard');
+    }
 }

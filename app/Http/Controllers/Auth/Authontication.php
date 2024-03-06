@@ -18,7 +18,7 @@ class Authontication extends Controller
     {
         return view('auth.login');
     }
-    
+
     public function index_register()
     {
         return view('auth.register');
@@ -44,12 +44,11 @@ class Authontication extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
+            'role' => $request->role,
         ]);
-        $request->session()->put('user_name', $user->name);
-        $request->session()->put('user_role', $user->role);
-        return redirect('/login')->with('success', 'Login successful');
+        return redirect('/login')->with('success', 'Your Account Created');
     }
-    public function destroy(string $id)
+    public function destroy()
     {
         Session::flush();
         return redirect('/login')->with('success', 'Goodbye!!');
