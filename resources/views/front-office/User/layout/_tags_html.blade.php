@@ -11,10 +11,9 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
-
-
+    
     <!-- Css Styles -->
     <link rel="stylesheet" href="/assets/css/front-office/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/css/front-office/font-awesome.min.css" type="text/css">
@@ -43,6 +42,8 @@
                         <li><a href="/organisateur/Event/{{session('user_id')}}">Event management</a>
                         </li>
                         @endif
+                        <li><a href="/Board">Board Tickets</a>
+                        </li>
                         <li><a href="" class="d-flex align-items-center">
                             <span class="account-user-avatar px-2">
                                 <img src="/organisateur/assets/images/profile.jpg" alt="user-image" width="32" class="rounded-circle">

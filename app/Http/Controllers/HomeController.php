@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function home()
     {
         $allCategory = Categories::all();
-        $allEvents = Event::all()->where('status', 'approved');
+        $allEvents = Event::where('status', 'approved')->simplePaginate(4);
         return view('front-office.User.home', compact('allCategory', 'allEvents'));
     }
     public function dashboard()
@@ -25,7 +25,7 @@ class HomeController extends Controller
         $allEvents = Event::where('name', 'like', '%' . $request->search . '%')
             ->where('category_id', 'like', '%' . $request->filter . '%')
             ->where('status', 'approved')
-            ->get();
+            ->simplePaginate(4);
         return view('front-office.User.home', compact('allEvents', 'allCategory'));
     }
     public function blog_event($id)

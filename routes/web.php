@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\backOffice\valide_events;
 use App\Http\Controllers\Organisateur\EventController;
 use App\Http\Controllers\Organisateur\Valide_ticket;
+use App\Http\Controllers\User\BoardController;
 use App\Http\Controllers\User\ReservationController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,10 @@ Route::post('/organisateur/approv_ticket', [Valide_ticket::class, 'approvTicket'
 Route::get('/home', [HomeController::class, 'home']);
 Route::get('/blog-event/{id}', [HomeController::class, 'blog_event']);
 Route::post('/search_filter', [HomeController::class, 'search']);
+Route::get('/search_filter', [HomeController::class, 'search']);
+Route::get('/Board', [BoardController::class, 'index']);
+Route::post('/generatePDF', [BoardController::class, 'generatePDF']);
+
 
 # part Auth
 Route::get('/', [Authontication::class, 'index_login']);
