@@ -33,30 +33,39 @@
 
         <!-- Theme Config Js -->
         <script src="/organisateur/assets/js/hyper-config.js"></script>
+      
+
 
         <!-- App css -->
         <link href="/organisateur/assets/css/app-saas.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
         <!-- Icons css -->
         <link href="/organisateur/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/organisateur/assets/css/style.css" rel="stylesheet" type="text/css" />
+        <style>
+            .custom-checkbox .form-check-input:checked {
+                background-color: red !important;
+                border-color: red !important;
+            }
+          </style>
         </head>
     <body>
                 <!-- Begin page -->
                 <div class="wrapper">
                     @include('front-office/Organisateure/layout/nav_bar')
-    @include('front-office/Organisateure/layout/sid_bar');
+                    @include('front-office/Organisateure/layout/sid_bar');
                     <div class="content-page">
                         <div class="content">
         
                             <!-- Start Content-->
                             <div class="container-fluid">
-        @yield('content')
+                                 @yield('content')
 
-                </div>
-                    </div>
-                        </div>
                             </div>
-      
+                        </div>
+                    </div>
+                </div>
+
       <!-- Vendor js -->
       <script src="/organisateur/assets/js/vendor.min.js"></script>
 
@@ -102,8 +111,15 @@
 
       <!-- App js -->
       <script src="/organisateur/assets/js/app.min.js"></script>
-   
-
+      <script>
+        $(document).ready(function() {
+            // Handle checkbox click event
+            $('input[type="checkbox"]').click(function() {
+                // Uncheck other checkboxes
+                $('input[type="checkbox"]').not(this).prop('checked', false);
+            });
+        });
+    </script>
   </body>
 
 <!-- Mirrored from coderthemes.com/hyper/saas/form-advanced.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Mar 2024 20:30:03 GMT -->

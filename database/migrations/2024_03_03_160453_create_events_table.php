@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 200);
             $table->string('description', 255);
+            $table->string('image');
             $table->timestamp('date_start');
             $table->string('adress');
             $table->unsignedBigInteger('number_place');

@@ -46,8 +46,8 @@
                     <label for="role" class="text-center">Your Role : </label><br>
                     <div class="custom-checkbox d-flex justify-content-around">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input w-25" type="checkbox" id="utilisateur" name="role" value="utilisateur">
-                            <label class="form-check-label" for="utilisateur">Utilisateur</label>
+                            <input class="form-check-input w-25" type="checkbox" id="user" name="role" value="user">
+                            <label class="form-check-label" for="user">User</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input w-auto" type="checkbox" id="organisateur" name="role" value="organisateur" >

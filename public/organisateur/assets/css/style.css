@@ -1,0 +1,6 @@
+#statusEvent {
+    position: relative;
+    transform: translate(300%, 55%);
+    z-index: 100 !important;
+    width: 80px;
+}

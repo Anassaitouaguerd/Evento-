@@ -35,15 +35,23 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
+        $user_id = $request->user_id;
+        $img = $request->file('image');
+        $image_name = $img->getClientOriginalName();
+        $image = uniqid() . $image_name;
+        $img->move('Uploads/', $image);
         Event::create([
+            'image' => $image,
+            'user_id' => $user_id,
             'name' => $request->name,
             'description' => $request->description,
             'date_start' => $request->date_start,
-            'adress' => $request->adress,
+            'adress' => $request->address,
+            'number_place' => $request->number_place,
             'category_id' => $request->category_id,
-            'user_id' => $request->user_id,
+            'type' => $request->type,
         ]);
-        return redirect('/organisateur/Event')->with('success', 'Add event with success');
+        return redirect('/organisateur/Event/' . $user_id)->with('success', 'Add event with success');
     }
 
     /**
@@ -51,8 +59,9 @@ class EventController extends Controller
      */
     public function show($id)
     {
+        $allCategory = Categories::all();
         $myEvents = Event::all()->where('user_id', $id);
-        return view('front-office.Organisateure.All_My_events', compact('myEvents'));
+        return view('front-office.Organisateure.All_My_events', compact('myEvents', 'allCategory'));
     }
 
     /**
@@ -68,15 +77,34 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, $id)
     {
+        $user_id = $request->user_id;
         $event = Event::where('id', $id)->first();
+
+        # check the request has the image 
+
+        if ($request->hasFile("image")) {
+            $oldImage = public_path('Uploads/' . $event->image);
+
+            # delete the old image in the folder Upload
+
+            if (file_exists($oldImage)) {
+                unlink($oldImage);
+            }
+            $img = $request->file('image');
+            $image_name = $img->getClientOriginalName();
+            $image = uniqid() . $image_name;
+            $img->move('Uploads/', $image);
+            $event->image = $image;
+        }
         $event->name = $request->name;
         $event->description = $request->description;
         $event->date_start = $request->date_start;
-        $event->adress = $request->adress;
+        $event->adress = $request->address;
         $event->category_id = $request->category_id;
-        $event->user_id = $request->user_id;
+        $event->user_id = $user_id;
+        $event->type = $request->type;
         $event->update();
-        return redirect('/organisateur/Event')->with('success', 'Update event with success');
+        return redirect('/organisateur/Event/' . $user_id)->with('success', 'Update event with success');
     }
 
     /**
@@ -85,7 +113,8 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::where('id', $id)->first();
+        $user_id = $event->user_id;
         $event->delete();
-        return redirect('/organisateur/Event')->with('success', 'Delete event with success');
+        return redirect('/organisateur/Event/' . $user_id)->with('success', 'Delete event with success');
     }
 }

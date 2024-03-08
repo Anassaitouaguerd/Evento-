@@ -132,9 +132,9 @@ ol {
 }
 
 .set-bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: top center !important;
 }
 
 .spad {
@@ -1717,7 +1717,13 @@ ol {
 /*---------------------
   Blog
 -----------------------*/
-
+.details {
+    position: absolute;
+    top: 80%;
+    left: 70%;
+    height: 60px;
+    text-align: center;
+}
 .blog-section {
     margin-top: 100px;
     padding-top: 50px;

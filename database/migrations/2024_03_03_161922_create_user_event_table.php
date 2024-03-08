@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_event', function (Blueprint $table) {
+        Schema::create('user_events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('event_id');
-            $table->boolean('is_ticket');
-            $table->unsignedBigInteger('ticket_id');
-            $table->enum('status', ['approved', 'rejected' , 'pending'])->default('pending');
+            $table->string('ticket_id');
+            $table->enum('status', ['approved', 'rejected', 'pending'])->default('pending');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

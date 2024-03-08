@@ -7,6 +7,8 @@ use App\Http\Controllers\backOffice\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\backOffice\valide_events;
 use App\Http\Controllers\Organisateur\EventController;
+use App\Http\Controllers\Organisateur\Valide_ticket;
+use App\Http\Controllers\User\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,11 +22,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+# part admin 
 Route::get('/dashboard', [HomeController::class, 'dashboard']);
 Route::get('/admin/valide_events', [valide_events::class, 'index']);
 Route::post('/admin/rejectEvent', [valide_events::class, 'rejectEvent']);
 Route::post('/admin/approvEvent', [valide_events::class, 'approvEvent']);
+
+# part organisateure
+Route::get('/organisateur/Event/Add', [EventController::class, 'index_add']);
+Route::get('/organisateur/valide_ticket', [Valide_ticket::class, 'index']);
+Route::post('/organisateur/reject_ticket', [Valide_ticket::class, 'rejectTicket']);
+Route::post('/organisateur/approv_ticket', [Valide_ticket::class, 'approvTicket']);
+
+### part user 
+
+# part home
 Route::get('/home', [HomeController::class, 'home']);
+Route::get('/blog-event/{id}', [HomeController::class, 'blog_event']);
+Route::post('/search_filter', [HomeController::class, 'search']);
+
+# part Auth
 Route::get('/', [Authontication::class, 'index_login']);
 Route::get('/login', [Authontication::class, 'index_login']);
 Route::get('/register', [Authontication::class, 'index_register']);
@@ -35,8 +52,12 @@ Route::get('/forget_password', [Authontication::class, 'index_forget_password'])
 Route::post('/send_email', [EmailController::class, 'send_email']);
 Route::get('/reset/{token}', [EmailController::class, 'reset_password']);
 Route::post('/reset/{token}', [EmailController::class, 'change_password']);
-Route::get('/organisateur/Event/Add', [EventController::class, 'index_add']);
 
+## part reservation 
+Route::post('/reservation', [ReservationController::class, 'reservation']);
+
+
+# part CRUD 
 Route::resources([
     '/admin/Categories' => CategoryController::class,
     '/admin/User' => UserController::class,

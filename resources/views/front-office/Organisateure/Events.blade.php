@@ -1,22 +1,27 @@
 @extends('front-office.Organisateure.layout.tags_html')
 @section('title', 'Create Event')
 @section('content')
-    <form action="/organisateur/Event" method="POST">
+                                                    
+
+<form action="/organisateur/Event" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value="{{ session('user_id') }}" name="user_id">
-        
+
+    
         <div class="mb-3">
-            <label for="event_name" class="form-label">Name</label>
-            <input type="text" id="event_name" name="event_name" class="form-control" placeholder="Event Name">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" id="image" name="image" class="form-control" placeholder="Event image">
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="event_name" name="name" class="form-control" placeholder="Event Name">
         </div>
         
-        {{-- Description Editor --}}
         <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea id="description" class="w-100 p-2 bg-white rounded-3 text-black" style="resize: none;" name="description">
-        </textarea>
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" name="description" class="w-100 p-2 bg-white rounded-3 text-black" style="resize: none;"></textarea>
         </div>
-        {{-- End Description Editor --}}
         
         <div class="mb-3">
             <label for="event_address" class="form-label">Address</label>
@@ -38,18 +43,27 @@
             </select>
         </div>
         
-        <div class=" d-flex align-items-center p-4">
-            <span class="text-gray text-body text-uppercase">Do you want the reservation Manually : </span>
-            <input type="checkbox" id="switch1" name="type" data-switch="bool"/>
-            <label for="switch1" class="mx-3" data-on-label="On" data-off-label="Off"></label>
+        <div class="d-flex align-items-center p-4">
+            <label for="role" class="text-gray text-body text-uppercase pb-3">Do you want the reservation Manually: </label>
+            <div class="custom-checkbox d-flex justify-content-around mb-3 ms-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="auto" name="type" value="auto">
+                    <label class="form-check-label" for="auto">Auto</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="manuly" name="type" value="manuly" >
+                    <label class="form-check-label" for="manuly">Manuly</label>
+                </div>
+            </div>
         </div>
         
         <div class="mb-3">
             <label for="date_start" class="form-label">Event Start Date</label>
             <input type="datetime-local" id="date_start" name="date_start" class="form-control">
         </div>
+        
         <div class="mt-2 mb-md-4">
-            <button type="submit" class="btn btn-primary mt-2 stretched-link px-3">Add</button>
+            <button type="submit" class="btn btn-primary mt-2 px-3">Add</button>
         </div>
         
     </form>
