@@ -5,7 +5,7 @@
 
 <form action="/organisateur/Event" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" value="{{ session('user_id') }}" name="user_id">
+        <input type="hidden" value="{{ session('user')->id }}" name="user_id">
 
     
         <div class="mb-3">

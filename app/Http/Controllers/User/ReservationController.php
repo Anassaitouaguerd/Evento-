@@ -32,7 +32,7 @@ class ReservationController extends Controller
     {
         # check the user if he create this event 
 
-        $is_find = $this->check_user_event($request->event_id, $request->user_id);
+        $is_find = $this->check_user_event($request->event_id, session('user')->id);
         if ($is_find == true) {
             return back()->with('false', 'You are the createur for this event you can\'t reserve place in this event');
         }
@@ -52,7 +52,7 @@ class ReservationController extends Controller
 
         #insert into table user_event
 
-        $ticket->user_id = $request->user_id;
+        $ticket->user_id = session('user')->id;
         $ticket->event_id = $request->event_id;
         $ticket->ticket_id = $ticket_token;
         $ticket->save();

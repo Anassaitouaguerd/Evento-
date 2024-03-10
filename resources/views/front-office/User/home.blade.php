@@ -56,7 +56,7 @@
         <div class="row">
             @foreach ($allEvents as $event)
             <div class="col-lg-6">
-                <div class="blog-item set-bg large-item mt-5" data-setbg="/Uploads/{{$event->image}}">
+                <div class="blog-item set-bg large-item mt-5" data-setbg="{{ asset('/Uploads/' . $event->image)}}">
                     <div class="bi-tag bg-gradient">{{$event->category->name}}</div>
                     <div id="bg_info" class="bi-text">
                         <h3><a href="/blog-event/{{$event->id}}">{{$event->name}}</a></h3>

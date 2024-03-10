@@ -29,9 +29,7 @@ class Authontication extends Controller
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            $request->session()->put('user_id', $user->id);
-            $request->session()->put('user_name', $user->name);
-            $request->session()->put('user_role', $user->role);
+            $request->session()->put('user', $user);
             return redirect('/home')->with('success', 'Login successful');
         } else {
             return back()->withErrors(['email' => 'the email or password could not be verified']);
@@ -46,6 +44,7 @@ class Authontication extends Controller
             'password' => $request->password,
             'role' => $request->role,
         ]);
+        $user->assignRole($request->role);
         return redirect('/login')->with('success', 'Your Account Created');
     }
     public function destroy()

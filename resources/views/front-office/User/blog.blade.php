@@ -44,7 +44,6 @@
             <h5 class="card-title">Reserve Tickets</h5>
             <form method="POST" action="/reservation">
                 @csrf
-                <input type="hidden" name="user_id" value="{{session('user_id')}}">
                 <input type="hidden" name="event_id" value="{{$event->id}}">
                 <div class="form-group">
                  <!-- Event Title -->

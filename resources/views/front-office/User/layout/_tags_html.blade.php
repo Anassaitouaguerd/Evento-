@@ -37,23 +37,46 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
+                        
                         <li class="active"><a href="/home">Home</a></li>
-                        @if (session('user_role') && session('user_role') == 'organisateur')
-                        <li><a href="/organisateur/Event/{{session('user_id')}}">Event management</a>
+                        @if (session('user') && session('user')->role == 'organisateur')
+                        <li><a href="/organisateur/Event/{{session('user')->id}}">Event management</a>
                         </li>
                         @endif
+                        @if (session('user') && session('user')->role == 'admin')
+                        <li><a href="/dashboard">Dashboard</a>
+                        </li>
+                        @endif
+                        @if (session('user') && !session('user')->role == 'admin')
                         <li><a href="/Board">Board Tickets</a>
                         </li>
+                        @endif
+                        @if (session('user'))
                         <li><a href="" class="d-flex align-items-center">
                             <span class="account-user-avatar px-2">
                                 <img src="/organisateur/assets/images/profile.jpg" alt="user-image" width="32" class="rounded-circle">
                             </span>
-                            Welcome, {{session('user_name')}}</a>
+                            Welcome, {{session('user')->name}}</a>
                             <ul class="dropdown">
                                 <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             
                             </ul>
                         </li>
+                        @else
+                        <li><a href="" class="d-flex align-items-center">
+                            <span class="account-user-avatar px-2">
+                                <img src="/organisateur/assets/images/profile.jpg" alt="user-image" width="32" class="rounded-circle">
+                            </span>
+                            Welcome,</a>
+                            <ul class="dropdown">
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                            
+                            </ul>
+                        </li>
+                        
+                        @endif
                     </ul>
                 </nav>
                 <a href="#by-tecket" class="primary-btn top-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated-fill" viewBox="0 0 16 16">

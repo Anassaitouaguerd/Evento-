@@ -48,7 +48,7 @@
                         <li class="side-nav-title">Actions </li>
 
                         <li class="side-nav-item">
-                            <a href="/organisateur/Event/{{session('user_id')}}" class="side-nav-link">
+                            <a href="/organisateur/Event/{{session('user')->id}}" class="side-nav-link">
                                 <i class="uil-calender"></i>
                                 <span> All My Events </span>
                             </a>

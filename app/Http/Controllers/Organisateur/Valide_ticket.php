@@ -16,7 +16,7 @@ class Valide_ticket extends Controller
             ->leftJoin('events as e', 'r.event_id', '=', 'e.id')
             ->leftJoin('users as u', 'u.id', '=', 'e.user_id')
             ->leftJoin('users as ru', 'ru.id', '=', 'r.user_id')
-            ->where('u.id', '=', session('user_id'))
+            ->where('u.id', '=', session('user')->id)
             ->select('r.*', 'ru.name AS user_name', 'e.name', 'e.description')
             ->get();
         return view('front-office.Organisateure.BoardEvents', compact('tickets'));

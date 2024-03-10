@@ -18,10 +18,10 @@
 
         </div>
         <div class="nav-item submenu">
-            <span class="nav-link">welcom, {{ session('user_name') }}</span>
+            <span class="nav-link">welcom, {{session('user')->name}}</span>
         </div>
         <div class="nav-item submenu mx-4">
-                <a href="/" type="button" class="btn bg-gradient-dark mb-0">
+                <a href="/home" type="button" class="btn bg-gradient-dark mb-0">
                     Home
                 </a>
         </div>

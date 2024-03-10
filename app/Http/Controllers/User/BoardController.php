@@ -13,7 +13,7 @@ class BoardController extends Controller
 {
     public function index()
     {
-        $tickets = UserEvent::where('user_id', session('user_id'))->get();
+        $tickets = UserEvent::where('user_id', session('user')->id)->get();
         return view('front-office.User.boardTickets', compact('tickets'));
     }
     public function generatePDF(BoardRequest $request)

@@ -356,16 +356,20 @@
                                     <img src="/organisateur/assets/images/profile.jpg" alt="user-image" width="32" class="rounded-circle">
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
-                                    <h5 class="my-0">Welcome, {{session('user_name')}} !</h5>
+                                    <h5 class="my-0">Welcome, {{session('user')->name}} !</h5>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                                 <!-- item-->
                                 <div class=" dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Welcome, {{session('user_name')}} !</h6>
+                                    <h6 class="text-overflow m-0">Welcome, {{session('user')->name}} !</h6>
                                 </div>
 
                                 <!-- item-->
+                                <a href="/" class="dropdown-item">
+                                    <i class="ri-building-fill me-1"></i>
+                                    <span>Home</span>
+                                </a>
                                 <a href="/logout" class="dropdown-item">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>

@@ -23,7 +23,6 @@ class ReservationRequest extends FormRequest
     {
 
         return [
-            'user_id' => 'required',
             'event_id' => 'required',
         ];
     }

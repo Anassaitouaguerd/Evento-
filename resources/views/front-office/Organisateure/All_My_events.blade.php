@@ -66,7 +66,7 @@
                         class="mt-4" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <input type="hidden" value="{{ session('user_id') }}" name="user_id">
+                        <input type="hidden" value="{{ session('user')->id }}" name="user_id">
                         
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
