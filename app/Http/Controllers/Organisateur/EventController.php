@@ -101,6 +101,7 @@ class EventController extends Controller
         $event->date_start = $request->date_start;
         $event->adress = $request->address;
         $event->category_id = $request->category_id;
+        $event->number_place = $request->number_place;
         $event->user_id = $user_id;
         $event->type = $request->type;
         $event->update();

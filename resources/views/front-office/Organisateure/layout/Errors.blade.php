@@ -1,0 +1,21 @@
+@error('image')
+    {{$message}}
+@enderror
+@error('name')
+    {{$message}}
+@enderror
+@error('description')
+    {{$message}}
+@enderror
+@error('address')
+    {{$message}}
+@enderror
+@error('number_place')
+    {{$message}}
+@enderror
+@error('type')
+    {{$message}}
+@enderror
+@error('date_start')
+    {{$message}}
+@enderror

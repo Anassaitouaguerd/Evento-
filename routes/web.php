@@ -75,7 +75,7 @@ Route::middleware('Authentication')->group(function () {
     Route::middleware('role:organisateur')->group(function () {
 
         # part organisateure
-
+        Route::get('/Statistiques', [HomeController::class, 'dash_organisateur']);
         Route::get('/organisateur/Event/Add', [EventController::class, 'index_add']);
         Route::get('/organisateur/valide_ticket', [Valide_ticket::class, 'index']);
         Route::post('/organisateur/reject_ticket', [Valide_ticket::class, 'rejectTicket']);

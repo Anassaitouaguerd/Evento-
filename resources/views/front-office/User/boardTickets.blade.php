@@ -1,6 +1,8 @@
 @extends('front-office.user.layout._tags_html')
 @section('title', 'Board Tickets')
+@section('link', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css')
 @section('content')
+
 <table class="table table-striped w-75 centered mt-5 border-left border-right border-secondary">
     <thead>
         <tr>

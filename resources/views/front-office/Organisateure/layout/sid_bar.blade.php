@@ -46,7 +46,12 @@
                     <ul class="side-nav">
 
                         <li class="side-nav-title">Actions </li>
-
+                        <li class="side-nav-item">
+                            <a href="/Statistiques" class="side-nav-link">
+                                <i class="uil-comments-alt"></i>
+                                <span> Statistiques </span>
+                            </a>
+                        </li>
                         <li class="side-nav-item">
                             <a href="/organisateur/Event/{{session('user')->id}}" class="side-nav-link">
                                 <i class="uil-calender"></i>

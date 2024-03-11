@@ -31,12 +31,13 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
             'role' => $request->role,
         ]);
+        $user->assignRole($request->role);
         return back()->with('success', 'Add User success');
     }
 
@@ -67,6 +68,7 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->role = $request->role;
         $user->update();
+        $user->assignRole($request->role);
         return back()->with('success', 'Update User success');
     }
 

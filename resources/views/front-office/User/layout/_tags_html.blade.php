@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/assets/css/front-office/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/css/front-office/style.css" type="text/css">
     <link rel="stylesheet" href="/assets/css/front-office/main.css" type="text/css">
+    <link rel="stylesheet" href="@yield('link')">
 </head>
 
 <body>
@@ -40,14 +41,14 @@
                         
                         <li class="active"><a href="/home">Home</a></li>
                         @if (session('user') && session('user')->role == 'organisateur')
-                        <li><a href="/organisateur/Event/{{session('user')->id}}">Event management</a>
+                        <li><a href="/Statistiques">Event management</a>
                         </li>
                         @endif
                         @if (session('user') && session('user')->role == 'admin')
                         <li><a href="/dashboard">Dashboard</a>
                         </li>
                         @endif
-                        @if (session('user') && !session('user')->role == 'admin')
+                        @if (session('user') && session('user')->role == 'user' OR session('user')->role == 'organisateur')
                         <li><a href="/Board">Board Tickets</a>
                         </li>
                         @endif
@@ -89,6 +90,7 @@
     <!-- Header End -->
     @yield('content')
   <!-- Js Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="/assets/js/jquery-3.3.1.min.js"></script>
   <script src="/assets/js/bootstrap.min.js"></script>
   <script src="/assets/js/jquery.magnific-popup.min.js"></script>
